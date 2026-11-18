@@ -1,0 +1,11 @@
+@PepeApi_HostAddress = http://localhost:5096
+
+GET {{PepeApi_HostAddress}}/api/Products/GetProducts
+Accept: application/json
+
+###
+
+GET {{PepeApi_HostAddress}}/api/Products/GetCategories
+Accept: application/json
+
+###

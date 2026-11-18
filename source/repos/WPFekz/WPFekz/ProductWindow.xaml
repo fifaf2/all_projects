@@ -1,0 +1,55 @@
+﻿<Window x:Class="WPFekz.ProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFekz"
+        mc:Ignorable="d"
+        Title="ProductWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.Row="0" Padding="8">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="BtnOrders" Content="Заказы" Width="80" Height="25" Margin="0,0,10,0" FontWeight="Bold" Click="BtnOrders_Click"/>
+                    <TextBlock x:Name="TbFio" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Button Content="Выйти" Width="60" Height="25" Click="BtnLogout_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" x:Name="FilterPanel" Background="#F4F4F4" Padding="8">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Поиск:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Name="TbSearch" Width="200" Height="24" TextChanged="Filter_Changed" Margin="0,0,15,0"/>
+
+                <TextBlock Text="Скидка:" VerticalAlignment="Center" Margin="340,0,5,0"/>
+                <ComboBox x:Name="CbDiscount" Width="140" Height="24" SelectionChanged="Filter_Changed">
+                    <ComboBoxItem Content="Все диапазоны" IsSelected="True"/>
+                    <ComboBoxItem Content="0 - 10%"/>
+                    <ComboBoxItem Content="11 - 14%"/>
+                    <ComboBoxItem Content="15% и более"/>
+                </ComboBox>
+            </StackPanel>
+        </Border>
+
+        <ListBox Grid.Row="2" x:Name="LbProducts" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:ProductCard/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <Border Grid.Row="3" x:Name="AdminPanel" Background="#EEEEEE" Padding="8">
+            <Button Content="Удалить выбранный товар" HorizontalAlignment="Right" Width="180" Height="28" Click="BtnDelete_Click"/>
+        </Border>
+    </Grid>
+</Window>

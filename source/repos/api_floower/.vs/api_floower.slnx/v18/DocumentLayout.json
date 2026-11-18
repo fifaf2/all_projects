@@ -1,0 +1,205 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fifaf\\source\\repos\\api_floower\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\controllers\\statusescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\controllers\\statusescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\controllers\\productorderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\controllers\\productorderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\controllers\\postavshikscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\controllers\\postavshikscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\dtos\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\dtos\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|c:\\users\\fifaf\\source\\repos\\api_floower\\api_floower\\models\\floorescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E51FFA34-B359-16ED-BB17-27B6549ACF3F}|api_floower\\api_floower.csproj|solutionrelative:api_floower\\models\\floorescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StatusesController.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\StatusesController.cs",
+              "RelativeDocumentMoniker": "api_floower\\Controllers\\StatusesController.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\StatusesController.cs",
+              "RelativeToolTip": "api_floower\\Controllers\\StatusesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHAAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-02T09:19:47.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductordersController.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\ProductordersController.cs",
+              "RelativeDocumentMoniker": "api_floower\\Controllers\\ProductordersController.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\ProductordersController.cs",
+              "RelativeToolTip": "api_floower\\Controllers\\ProductordersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-02T09:19:32.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dtos.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Dtos\\Dtos.cs",
+              "RelativeDocumentMoniker": "api_floower\\Dtos\\Dtos.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Dtos\\Dtos.cs",
+              "RelativeToolTip": "api_floower\\Dtos\\Dtos.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAA7wC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:37:25.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "api_floower\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "api_floower\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAswAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:36:57.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "api_floower\\Controllers\\RolesController.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "api_floower\\Controllers\\RolesController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAADwvwcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:35:06.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "api_floower\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "api_floower\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:34:55.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PostavshiksController.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\PostavshiksController.cs",
+              "RelativeDocumentMoniker": "api_floower\\Controllers\\PostavshiksController.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\PostavshiksController.cs",
+              "RelativeToolTip": "api_floower\\Controllers\\PostavshiksController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:32:03.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "api_floower\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "api_floower\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:29:52.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "api_floower\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "api_floower\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:29:27.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Program.cs",
+              "RelativeDocumentMoniker": "api_floower\\Program.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Program.cs",
+              "RelativeToolTip": "api_floower\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:28:15.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FlooresContext.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Models\\FlooresContext.cs",
+              "RelativeDocumentMoniker": "api_floower\\Models\\FlooresContext.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\api_floower\\api_floower\\Models\\FlooresContext.cs",
+              "RelativeToolTip": "api_floower\\Models\\FlooresContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:13:06.335Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

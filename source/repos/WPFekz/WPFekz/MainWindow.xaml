@@ -1,0 +1,21 @@
+﻿<Window x:Class="WPFekz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFekz"
+        mc:Ignorable="d"
+        Title="LOGIN" Height="550" Width="500">
+    <StackPanel Margin="20" VerticalAlignment="Center">
+        <TextBlock Text="Вход" FontSize="16" HorizontalAlignment="Center" Margin="0,0,0,15" Foreground="#6A5ACD"/>
+
+        <TextBlock Text="Логин:"/>
+        <TextBox x:Name="TbLogin" Height="25" Margin="0,2,0,10"/>
+
+        <TextBlock Text="Пароль:"/>
+        <PasswordBox x:Name="PbPass" Height="25" Margin="0,2,0,15"/>
+
+        <Button Content="Войти" Height="30"  Click="BtnLogin_Click" Margin="0,0,0,5" Background="#4B0082"/>
+        <Button Content="Войти как гость" Height="26" Click="BtnGuest_Click" Background="#6A5ACD"/>
+    </StackPanel>
+</Window>

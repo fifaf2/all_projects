@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="WPFekz.OrderCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFekz"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="300">
+    <Border x:Name="CardBorder" BorderBrush="#CCC" BorderThickness="1" CornerRadius="4" Padding="8" Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                <TextBlock x:Name="TbTitle" FontWeight="Bold" FontSize="14"/>
+                <TextBlock x:Name="TbStatus" TextTrimming="CharacterEllipsis" Margin="0,2,0,0"/>
+                <TextBlock x:Name="TbAdress" Margin="0,2,0,0"/>
+                <TextBlock x:Name="TbDateOrder"/>
+            </StackPanel>
+            <Border Grid.Column="1" Background="#F0F0F0" CornerRadius="4" Padding="5" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Дата доставки" FontSize="11" Foreground="#666"/>
+                    <TextBlock x:Name="TbDateDost" FontSize="18" FontWeight="Bold" Foreground="#6A5ACD"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

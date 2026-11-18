@@ -1,0 +1,35 @@
+﻿<Window x:Class="WPFekz.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFekz"
+        mc:Ignorable="d"
+        Title="OrderWindow" Height="450" Width="800">
+    <Grid Margin="0,16,0,-16" RenderTransformOrigin="0.507,0.441">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Text="Заказы" Margin="0,0,10,0" />
+            <Button Width="100" Height="30" Content="Выйти из заказов" Click="Button_Click"/>
+        </StackPanel>
+
+        <ComboBox Grid.Row="1" x:Name="Cbstatus" SelectionChanged="Cbstatus_SelectionChanged">
+            <ComboBoxItem Content="Все заказы" IsSelected="True"/>
+            <ComboBoxItem Content="Завершеные"/>
+            <ComboBoxItem Content="Новые"/>
+        </ComboBox>
+        <ListBox Grid.Row="2" x:Name="LbProducts" HorizontalContentAlignment="Stretch"   Margin="5,5,5,5" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:OrderCard/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        
+    </Grid>
+</Window>

@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fifaf\\source\\repos\\WPFekz\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AC38BD34-3B51-436A-A077-D16DA8EB4740}|WPFekz\\WPFekz.csproj|c:\\users\\fifaf\\source\\repos\\wpfekz\\wpfekz\\orderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC38BD34-3B51-436A-A077-D16DA8EB4740}|WPFekz\\WPFekz.csproj|solutionrelative:wpfekz\\orderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC38BD34-3B51-436A-A077-D16DA8EB4740}|WPFekz\\WPFekz.csproj|c:\\users\\fifaf\\source\\repos\\wpfekz\\wpfekz\\productwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC38BD34-3B51-436A-A077-D16DA8EB4740}|WPFekz\\WPFekz.csproj|solutionrelative:wpfekz\\productwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC38BD34-3B51-436A-A077-D16DA8EB4740}|WPFekz\\WPFekz.csproj|c:\\users\\fifaf\\source\\repos\\wpfekz\\wpfekz\\orderwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AC38BD34-3B51-436A-A077-D16DA8EB4740}|WPFekz\\WPFekz.csproj|solutionrelative:wpfekz\\orderwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC38BD34-3B51-436A-A077-D16DA8EB4740}|WPFekz\\WPFekz.csproj|c:\\users\\fifaf\\source\\repos\\wpfekz\\wpfekz\\productwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AC38BD34-3B51-436A-A077-D16DA8EB4740}|WPFekz\\WPFekz.csproj|solutionrelative:wpfekz\\productwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\WPFekz\\WPFekz\\OrderWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WPFekz\\OrderWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\WPFekz\\WPFekz\\OrderWindow.xaml.cs*",
+              "RelativeToolTip": "WPFekz\\OrderWindow.xaml.cs*",
+              "ViewState": "AgIAACcAAAAAAAAAAAAiwDAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-24T07:04:16.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\WPFekz\\WPFekz\\OrderWindow.xaml",
+              "RelativeDocumentMoniker": "WPFekz\\OrderWindow.xaml",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\WPFekz\\WPFekz\\OrderWindow.xaml",
+              "RelativeToolTip": "WPFekz\\OrderWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-09-24T07:04:13.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\WPFekz\\WPFekz\\ProductWindow.xaml",
+              "RelativeDocumentMoniker": "WPFekz\\ProductWindow.xaml",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\WPFekz\\WPFekz\\ProductWindow.xaml",
+              "RelativeToolTip": "WPFekz\\ProductWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-09-24T07:04:08.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\fifaf\\source\\repos\\WPFekz\\WPFekz\\ProductWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WPFekz\\ProductWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\fifaf\\source\\repos\\WPFekz\\WPFekz\\ProductWindow.xaml.cs",
+              "RelativeToolTip": "WPFekz\\ProductWindow.xaml.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAIwCkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-24T07:04:07.726Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
