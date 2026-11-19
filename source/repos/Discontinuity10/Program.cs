@@ -178,7 +178,6 @@ namespace Discontinuity10
 
             Console.WriteLine("\nИтоговая таблица:");
             Console.WriteLine("X \t f(X) \t\t Тип разрыва");
-            Console.WriteLine("-----------------------------------------");
 
             foreach (RationalPoint pt in table.Points)
             {
@@ -186,14 +185,11 @@ namespace Discontinuity10
                     Console.WriteLine($"{pt.X} \t {pt.Y} \t\t {pt.DiscontinuityType}");
                 else
                     Console.WriteLine($"{pt.X} \t разрыв \t {pt.DiscontinuityType}");
-            }
-
-            Console.WriteLine("-----------------------------------------");
+            } 
             Console.WriteLine($"Время расчёта обычных точек: {swNone.Elapsed.TotalMilliseconds} мс");
             Console.WriteLine($"Время обработки устранимого разрыва: {swRemovable.Elapsed.TotalMilliseconds} мс");
             Console.WriteLine($"Время обработки полюса: {swPole.Elapsed.TotalMilliseconds} мс");
         }
-
         public static double CalcRawFunction(double x)
         {
             Guard.CheckRawX(x);

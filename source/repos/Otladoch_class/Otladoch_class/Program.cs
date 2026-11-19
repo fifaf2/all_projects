@@ -1,169 +1,250 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Otladoch_class
+namespace MathFuncsLab
 {
     [DebuggerDisplay("n={N}, результат={Result}")]
-    class FactorialResult
+    public class FactorialResult
     {
         public int N { get; set; }
         public long Result { get; set; }
     }
 
     [DebuggerDisplay("n={N}, результат={Result}")]
-    class FibResult
+    public class FibResult
     {
         public int N { get; set; }
         public long Result { get; set; }
     }
 
-    static class MathFuncs
+    public static class MathFuncs
     {
-#if DEBUG
-        static readonly TraceSource Log = new TraceSource("MathFuncs", SourceLevels.Verbose);
-        static bool logFib = true;
+        private static readonly TraceSource ts = new TraceSource("MathFuncs");
 
         static MathFuncs()
         {
-
-            Trace.Listeners.Add(new ConsoleTraceListener());
-            Log.Listeners.Add(new ConsoleTraceListener());
-        }
+#if DEBUG
+            ts.Switch.Level = SourceLevels.All;
+#else
+            ts.Switch.Level = SourceLevels.Error;
 #endif
+            ts.Listeners.Clear();
+            ts.Listeners.Add(new ConsoleTraceListener());
+        }
 
-        public static long FactorialIter(int n)
+        
+        private static bool traceRecursion = false;
+        private const int TraceLimit = 10;
+ 
+
+        public static FactorialResult FactorialIterative(int n)
         {
             Debug.Assert(n >= 0, "Факториал не определён для отрицательных");
             Debug.Assert(n <= 20, "Переполнение long выше 20!");
-            if (n < 0)
-                throw new ArgumentOutOfRangeException("n", "Факториал не определён для отрицательных");
-            if (n > 20)
-            {
-#if DEBUG
-                Log.TraceEvent(TraceEventType.Error, 1, "Переполнение long выше 20!");
-#endif
-                throw new OverflowException("Переполнение long выше 20!");
-            }
 
             long result = 1;
-            for (int i = 2; i <= n; i++)
-                FactorialIter 
-           return result;
-        }
-
-        public static long FibonacciIter(int m)
-        {
-            Debug.Assert(m >= 0);
-            if (m < 0)
-                throw new ArgumentOutOfRangeException("m");
-            if (m > 92)
+            try
             {
-#if DEBUG
-                Log.TraceEvent(TraceEventType.Error, 2, "Переполнение long");
-#endif
-                throw new OverflowException("Переполнение long");
+                for (int i = 2; i <= n; i++)
+                {
+                    result = checked(result * i);
+                }
+            }
+            catch (OverflowException)
+            {
+                ts.TraceEvent(TraceEventType.Error, 3, "Переполнение при вычислении {0}! (итеративно)", n);
+                throw;
             }
 
-            long a = 0;
-            long b = 1;
-            for (int i = 0; i < m; i++)
-            {
-                long next = a + b;
-                a = b;
-                b = next;
-            }
-            return a;
+            return new FactorialResult { N = n, Result = result };
         }
 
-#if DEBUG
-        public static long FactorialRec(int n)
+        public static FactorialResult FactorialRecursive(int n)
         {
             Debug.Assert(n >= 0, "Факториал не определён для отрицательных");
             Debug.Assert(n <= 20, "Переполнение long выше 20!");
-            if (n < 0)
-                throw new ArgumentOutOfRangeException("n", "Факториал не определён для отрицательных");
-            if (n > 20)
+
+            ts.TraceEvent(TraceEventType.Verbose, 1, "Вход в рекурсию: факториал n={0}", n);
+            traceRecursion = n <= TraceLimit;
+
+            long res;
+            try
             {
-                Log.TraceEvent(TraceEventType.Error, 1, "Переполнение long выше 20!");
-                throw new OverflowException("Переполнение long выше 20!");
+                res = FactRec(n);
+            }
+            catch (OverflowException)
+            {
+                ts.TraceEvent(TraceEventType.Error, 3, "Переполнение при вычислении {0}! (рекурсивно)", n);
+                throw;
             }
 
-            Debug.WriteLine($"рекурсия: n={n}");
-            Log.TraceEvent(TraceEventType.Verbose, 0, $"вход в рекурсию, n={n}");
-            if (n <= 1)
-                return 1;
-
-            Debug.Indent();
-            long result = n * FactorialRec(n - 1);
-            Debug.Unindent();
-            return result;
+            return new FactorialResult { N = n, Result = res };
         }
 
-        public static long FibonacciRec(int m)
+        private static long FactRec(int n)
         {
-            Debug.Assert(m >= 0);
-            if (m < 0)
-                throw new ArgumentOutOfRangeException("m");
-            if (m > 92)
+            if (traceRecursion)
             {
-                Log.TraceEvent(TraceEventType.Error, 2, "Переполнение long");
-                throw new OverflowException("Переполнение long");
-            }
-
-            if (m > 30 && logFib)
-            {
-                logFib = false;
-                Log.TraceEvent(TraceEventType.Warning, 3, "m > 30: рекурсивный Фибоначчи взорвётся по времени");
-            }
-
-            if (logFib)
-            {
-                Debug.WriteLine($"рекурсия: n={m}");
-                Log.TraceEvent(TraceEventType.Verbose, 0, $"вход в рекурсию, n={m}");
+                Debug.WriteLine($"рекурсия: n={n}");
                 Debug.Indent();
             }
 
-            long result = m <= 1 ? m : FibonacciRec(m - 1) + FibonacciRec(m - 2);
+            long res;
+            if (n <= 1)
+                res = 1;
+            else
+                res = checked(n * FactRec(n - 1));
 
-            if (logFib)
+            if (traceRecursion)
+            {
                 Debug.Unindent();
-            return result;
+            }
+            return res;
         }
-#endif
+
+        
+
+        public static FibResult FibIterative(int m)
+        {
+            Debug.Assert(m >= 0);
+
+            if (m < 2)
+                return new FibResult { N = m, Result = m };
+
+            long a = 0, b = 1;
+            try
+            {
+                for (int i = 2; i <= m; i++)
+                {
+                    long c = checked(a + b);
+                    a = b;
+                    b = c;
+                }
+            }
+            catch (OverflowException)
+            {
+                ts.TraceEvent(TraceEventType.Error, 3, "Переполнение при вычислении Fib({0}) (итеративно)", m);
+                throw;
+            }
+
+            return new FibResult { N = m, Result = b };
+        }
+
+        public static FibResult FibRecursive(int m)
+        {
+            Debug.Assert(m >= 0);
+ts.TraceEvent(TraceEventType.Verbose, 1, "Вход в рекурсию: Fib m={0}", m);
+
+            if (m > 30)
+            {
+                ts.TraceEvent(TraceEventType.Warning, 2,
+                    "m={0} > 30: рекурсивный Фибоначчи будет считаться очень долго!", m);
+            }
+
+            traceRecursion = m <= TraceLimit;
+            long res = FibRec(m);
+            return new FibResult { N = m, Result = res };
+        }
+
+        private static long FibRec(int n)
+        {
+            if (traceRecursion)
+            {
+                Debug.WriteLine($"рекурсия: n={n}");
+                Debug.Indent();
+            }
+
+            long res;
+            if (n < 2)
+                res = n;
+            else
+                res = FibRec(n - 1) + FibRec(n - 2);
+
+            if (traceRecursion)
+            {
+                Debug.Unindent();
+            }
+            return res;
+        }
     }
 
-    internal class Program
+    class Program
     {
-        static void Main()
+        
+        static double Ms(Stopwatch sw)
         {
-            Console.Write("Введите n (факториал): ");
-            int n = int.Parse(Console.ReadLine());
-            Console.Write("Введите m (Фибоначчи): ");
-            int m = int.Parse(Console.ReadLine());
+            return sw.ElapsedTicks * 1000.0 / Stopwatch.Frequency;
+        }
 
-            var watch = Stopwatch.StartNew();
-            var factIter = new FactorialResult { N = n, Result = MathFuncs.FactorialIter(n) };
-            watch.Stop();
-            Console.WriteLine($"n! итеративно = {factIter.Result}, время {watch.Elapsed.TotalMilliseconds:0.###} мс");
+        static int ReadInt(string prompt, int min, int max)
+        {
+            while (true)
+            {
+                Console.Write(prompt);
+                string line = Console.ReadLine();
+
+                if (!int.TryParse(line, out int value))
+                {
+                    Console.WriteLine("Это не число, попробуйте ещё раз.");
+                    continue;
+                }
+                if (value < min || value > max)
+                {
+                    Console.WriteLine($"Число должно быть от {min} до {max}.");
+                    continue;
+                }
+                return value;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Факториал и числа Фибоначчи ===");
+
+            
+            int n = ReadInt("Введите n для факториала (0..20): ", 0, 20);
+            int m = ReadInt("Введите m для Фибоначчи (0..90): ", 0, 90);
+
+            Stopwatch sw = new Stopwatch();
+
+            
+            sw.Restart();
+            FactorialResult fi = MathFuncs.FactorialIterative(n);
+            sw.Stop();
+            Console.WriteLine($"\n{n}! (итеративно)  = {fi.Result}, время: {Ms(sw):F4} мс");
 
 #if DEBUG
-            watch.Restart();
-            var factRec = new FactorialResult { N = n, Result = MathFuncs.FactorialRec(n) };
-            watch.Stop();
-            Console.WriteLine($"n! рекурсивно = {factRec.Result}, время {watch.Elapsed.TotalMilliseconds:0.###} мс");
+            sw.Restart();
+            FactorialResult fr = MathFuncs.FactorialRecursive(n);
+            sw.Stop();
+            Console.WriteLine($"{n}! (рекурсивно)  = {fr.Result}, время: {Ms(sw):F4} мс");
 #endif
 
-            watch.Restart();
-            var fibIter = new FibResult { N = m, Result = MathFuncs.FibonacciIter(m) };
-            watch.Stop();
-            Console.WriteLine($"Fib итеративно = {fibIter.Result}, время {watch.Elapsed.TotalMilliseconds:0.###} мс");
+            
+            sw.Restart();
+            FibResult bi = MathFuncs.FibIterative(m);
+            sw.Stop();
+            Console.WriteLine($"\nFib({m}) (итеративно) = {bi.Result}, время: {Ms(sw):F4} мс");
 
 #if DEBUG
-            watch.Restart();
-            var fibRec = new FibResult { N = m, Result = MathFuncs.FibonacciRec(m) };
-            watch.Stop();
-            Console.WriteLine($"Fib рекурсивно = {fibRec.Result}, время {watch.Elapsed.TotalMilliseconds:0.###} мс");
+            if (m > 45)
+            {
+                Console.WriteLine("Рекурсивный Fib для m > 45 пропущен (слишком долго).");
+            }
+            else
+            {
+                if (m > 30)
+                    Console.WriteLine("Внимание: m > 30, рекурсивный вариант может считаться долго...");
+
+                sw.Restart();
+                FibResult br = MathFuncs.FibRecursive(m);
+                sw.Stop();
+                Console.WriteLine($"Fib({m}) (рекурсивно) = {br.Result}, время: {Ms(sw):F4} мс");
+            }
 #endif
+
+            Console.WriteLine("\nГотово. Нажмите Enter для выхода.");
+            Console.ReadLine();
         }
     }
 }
