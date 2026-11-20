@@ -6,9 +6,9 @@ namespace Discontinuity10
 {
     public enum DiscontinuityType
     {
-        None,       
-        Removable, 
-        Pole 
+        None,
+        Removable,
+        Pole
     }
 
     [DebuggerDisplay("x={X}, f={Y}, тип разрыва={DiscontinuityType}")]
@@ -17,21 +17,13 @@ namespace Discontinuity10
         public double X { get; set; }
         public double? Y { get; set; }
         public DiscontinuityType DiscontinuityType { get; set; }
-
-        public RationalPoint(double x, double? y, DiscontinuityType type)
-        {
-            X = x;
-            Y = y;
-            DiscontinuityType = type;
-        }
     }
 
     [DebuggerTypeProxy(typeof(RationalTableDebugView))]
     public class RationalTable
     {
-        public List<RationalPoint> Points = new List<RationalPoint>();
+        public List<RationalPoint> Points { get; } = new List<RationalPoint>();
     }
-
 
     public class RationalTableDebugView
     {
@@ -53,31 +45,66 @@ namespace Discontinuity10
         }
     }
 
-    public static class Guard
+    public static class RationalFuncs
     {
-        public static TraceSource trace = new TraceSource("MixedRational", SourceLevels.All);
-        public static void InitTrace()
-        {
-            trace.Listeners.Clear();
-            trace.Listeners.Add(new ConsoleTraceListener());
-        }
+        private static readonly TraceSource ts = new TraceSource("MixedRational");
+        private const double Eps = 1e-9;
 
-        public static void CheckRawX(double x)
+        static RationalFuncs()
         {
-            Debug.Assert(x != -1, "Полюс при x = -1");
-            Debug.Assert(x != 1, "Устранимый разрыв при x = 1");
+#if DEBUG
+            ts.Switch.Level = SourceLevels.All;
+#else
+            ts.Switch.Level = SourceLevels.Error;
+#endif
+            ts.Listeners.Clear();
+            ts.Listeners.Add(new ConsoleTraceListener());
         }
 
         public static void CheckLimits()
         {
             Debug.Assert(
-                Program.ComputeLimit(-1) == double.PositiveInfinity ||
-                Program.ComputeLimit(-1) == double.NegativeInfinity,
+                ComputeLimit(-1) == double.PositiveInfinity ||
+                ComputeLimit(-1) == double.NegativeInfinity,
                 "Предел в -1 должен быть ±∞");
 
             Debug.Assert(
-                Math.Abs(Program.ComputeLimit(1) - 1.5) < 1e-9,
+                Math.Abs(ComputeLimit(1) - 1.5) < Eps,
                 "Устранимый предел в 1 должен быть 3/2");
+        }
+
+        public static DiscontinuityType GetTypeOfPoint(double x)
+        {
+            if (Math.Abs(x - (-1)) < Eps)
+                return DiscontinuityType.Pole;
+
+            if (Math.Abs(x - 1) < Eps)
+                return DiscontinuityType.Removable;
+
+            return DiscontinuityType.None;
+        }
+
+        public static double CalcRawFunction(double x)
+        {
+            Debug.Assert(x != -1, "Полюс при x=-1");
+            Debug.Assert(x != 1, "Устранимый разрыв при x=1");
+
+            return (x * x * x - 1) / (x * x - 1);
+        }
+
+        public static double ComputeLimit(double x)
+        {
+            if (Math.Abs(x - (-1)) < Eps)
+                return double.PositiveInfinity;
+
+            if (Math.Abs(x - 1) < Eps)
+            {
+                double nearX = 1.0 + 1e-7;
+                double limit = (nearX * nearX * nearX - 1) / (nearX * nearX - 1);
+                return Math.Round(limit, 5);
+            }
+
+            return CalcRawFunction(x);
         }
 
         public static void LogPoint(double x, double? f, DiscontinuityType type)
@@ -86,53 +113,73 @@ namespace Discontinuity10
 
             if (type != DiscontinuityType.None)
             {
-                trace.TraceEvent(TraceEventType.Error, 1, $"Попадание в разрыв: x = {x}, тип = {type}");
+                ts.TraceEvent(TraceEventType.Error, 3,
+                    "Попадание в разрыв: x = {0}, тип = {1}", x, type);
             }
             else if (Math.Abs(x - 1) < 0.15 || Math.Abs(x + 1) < 0.15)
             {
-                trace.TraceEvent(TraceEventType.Warning, 2, $"Окрестность точки ±1: x = {x}");
+                ts.TraceEvent(TraceEventType.Warning, 2,
+                    "Окрестность точки ±1: x = {0}", x);
             }
             else
             {
-                trace.TraceEvent(TraceEventType.Information, 3, $"Обычная точка: x = {x}, f = {f:F3}");
+                ts.TraceEvent(TraceEventType.Information, 1,
+                    "Обычная точка: x = {0}, f = {1:F3}", x, f);
             }
         }
     }
 
-    public class Program
+    class Program
     {
+        static double Ms(Stopwatch sw)
+        {
+            return sw.ElapsedTicks * 1000.0 / Stopwatch.Frequency;
+        }
+
+        static double ReadDouble(string prompt)
+        {
+            while (true)
+            {
+                Console.Write(prompt);
+                string line = Console.ReadLine()?.Replace(".", ",");
+
+                if (!double.TryParse(line, out double value))
+                {
+                    Console.WriteLine("Это не число, попробуйте ещё раз.");
+                    continue;
+                }
+                return value;
+            }
+        }
+
         static void Main(string[] args)
         {
-            Guard.InitTrace();
-            Guard.CheckLimits();
+            RationalFuncs.CheckLimits();
 
-            Console.WriteLine("Вариант 10. Функция: f(x) = (x^3 - 1) / (x^2 - 1)");
-            Console.Write("Введите x: ");
-            string input = Console.ReadLine().Replace(".", ",");
+            Console.WriteLine("=== Вариант 10. Функция: f(x) = (x^3 - 1) / (x^2 - 1) ===");
 
-            if (!double.TryParse(input, out double userX))
-            {
-                Console.WriteLine("Ошибка: нужно ввести число.");
-                return;
-            }
-
-            DiscontinuityType userType = GetTypeOfPoint(userX);
+            double userX = ReadDouble("Введите x: ");
+            DiscontinuityType userType = RationalFuncs.GetTypeOfPoint(userX);
 
             if (userType == DiscontinuityType.Removable)
             {
-                double limit = ComputeLimit(1);
+                double limit = RationalFuncs.ComputeLimit(1);
                 Console.WriteLine($"В точке x = 1 устранимый разрыв. Предел равен {limit}");
-                CalcRawFunction(userX);
+#if DEBUG
+                RationalFuncs.CalcRawFunction(userX);
+#endif
             }
             else if (userType == DiscontinuityType.Pole)
             {
-                double limit = ComputeLimit(-1);
-                Console.WriteLine($"В точке x = -1 разрыв второго рода (полюс). Предел равен {limit}.");
-                CalcRawFunction(userX);
+                double limit = RationalFuncs.ComputeLimit(-1);
+                Console.WriteLine($"В точке x = -1 разрыв второго рода (полюс). Предел равен {limit}");
+#if DEBUG
+                RationalFuncs.CalcRawFunction(userX);
+#endif
             }
             else
             {
-                double y = CalcRawFunction(userX);
+                double y = RationalFuncs.CalcRawFunction(userX);
                 Console.WriteLine($"Результат: f({userX}) = {Math.Round(y, 4)}");
 
                 if (Math.Abs(userX - 1) < 0.2)
@@ -150,13 +197,13 @@ namespace Discontinuity10
 
             for (double x = -2.0; x <= 2.0; x = Math.Round(x + 0.1, 1))
             {
-                DiscontinuityType type = GetTypeOfPoint(x);
+                DiscontinuityType type = RationalFuncs.GetTypeOfPoint(x);
                 double? f = null;
 
                 if (type == DiscontinuityType.None)
                 {
                     swNone.Start();
-                    f = Math.Round(CalcRawFunction(x), 4);
+                    f = Math.Round(RationalFuncs.CalcRawFunction(x), 4);
                     swNone.Stop();
                 }
                 else if (type == DiscontinuityType.Removable)
@@ -172,56 +219,27 @@ namespace Discontinuity10
                     swPole.Stop();
                 }
 
-                Guard.LogPoint(x, f, type);
-                table.Points.Add(new RationalPoint(x, f, type));
+                RationalFuncs.LogPoint(x, f, type);
+                table.Points.Add(new RationalPoint { X = x, Y = f, DiscontinuityType = type });
             }
 
             Console.WriteLine("\nИтоговая таблица:");
-            Console.WriteLine("X \t f(X) \t\t Тип разрыва");
+            Console.WriteLine("X\tf(X)\t\tТип разрыва");
 
             foreach (RationalPoint pt in table.Points)
             {
                 if (pt.Y != null)
-                    Console.WriteLine($"{pt.X} \t {pt.Y} \t\t {pt.DiscontinuityType}");
+                    Console.WriteLine($"{pt.X}\t{pt.Y}\t\t{pt.DiscontinuityType}");
                 else
-                    Console.WriteLine($"{pt.X} \t разрыв \t {pt.DiscontinuityType}");
-            } 
-            Console.WriteLine($"Время расчёта обычных точек: {swNone.Elapsed.TotalMilliseconds} мс");
-            Console.WriteLine($"Время обработки устранимого разрыва: {swRemovable.Elapsed.TotalMilliseconds} мс");
-            Console.WriteLine($"Время обработки полюса: {swPole.Elapsed.TotalMilliseconds} мс");
-        }
-        public static double CalcRawFunction(double x)
-        {
-            Guard.CheckRawX(x);
-            return (x * x * x - 1) / (x * x - 1);
-        }
-
-        public static DiscontinuityType GetTypeOfPoint(double x)
-        {
-            if (Math.Abs(x - (-1)) < 1e-9)
-                return DiscontinuityType.Pole;
-
-            if (Math.Abs(x - 1) < 1e-9)
-                return DiscontinuityType.Removable;
-
-            return DiscontinuityType.None;
-        }
-
-        public static double ComputeLimit(double x)
-        {
-            if (Math.Abs(x - (-1)) < 1e-9)
-            {
-                return double.PositiveInfinity;
+                    Console.WriteLine($"{pt.X}\tразрыв\t\t{pt.DiscontinuityType}");
             }
 
-            if (Math.Abs(x - 1) < 1e-9)
-            {
-                double nearX = 1.0 + 1e-7;
-                double limit = (nearX * nearX * nearX - 1) / (nearX * nearX - 1);
-                return Math.Round(limit, 5);
-            }
+            Console.WriteLine($"\nВремя расчёта обычных точек:        {Ms(swNone):F4} мс");
+            Console.WriteLine($"Время обработки устранимого разрыва: {Ms(swRemovable):F4} мс");
+            Console.WriteLine($"Время обработки полюса:              {Ms(swPole):F4} мс");
 
-            return CalcRawFunction(x);
+            Console.WriteLine("\nГотово. Нажмите Enter для выхода.");
+            Console.ReadLine();
         }
     }
 }
